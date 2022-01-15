@@ -66,18 +66,6 @@ fun Application.module(testing: Boolean = false) {
 
         UserRoutes(usersRepository, jwtService, hashFunction)
         NoteRoutes(notesRepository, hashFunction)
-
-        route("/notes") {
-            post {
-                val body = call.receive<Any>()
-                call.respond(body)
-            }
-
-            delete {
-                val body = call.receive<String>()
-                call.respond(body)
-            }
-        }
     }
 }
 
